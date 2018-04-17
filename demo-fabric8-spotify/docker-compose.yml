@@ -1,0 +1,13 @@
+version: '3'
+services:        
+    demo-fabric8:
+        image: localhost:5000/demo-fabric8:0.0.2
+        container_name: demo-fabric8
+        ports:
+            - 3001:8080
+        networks: 
+            - network-demo
+
+networks: 
+    network-demo:
+        driver: bridge
