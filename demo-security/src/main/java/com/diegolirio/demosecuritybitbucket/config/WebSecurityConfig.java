@@ -1,4 +1,4 @@
-package com.diegolirio.demosecuritybitbucket;
+package com.diegolirio.demosecuritybitbucket.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
