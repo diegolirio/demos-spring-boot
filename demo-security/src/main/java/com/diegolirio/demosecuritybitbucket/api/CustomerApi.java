@@ -1,5 +1,7 @@
 package com.diegolirio.demosecuritybitbucket.api;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,7 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class CustomerApi {
 
 	@GetMapping
-	public String test() {
+	public String test(HttpServletRequest request) {
+		System.out.println(request.getHeader("Authorization"));
 		return "GET: Diego Lirio";
 	}
 	
