@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: sa
+    dbcp2:
+      test-on-borrow: true
+      validation-query: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    
