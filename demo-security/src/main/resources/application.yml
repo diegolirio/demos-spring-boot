@@ -9,6 +9,6 @@ spring:
         dialect: org.hibernate.dialect.MySQL5Dialect
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/demo_secutiry
+    url: jdbc:mysql://localhost:3306/demo_security
     username: root
     password: root
