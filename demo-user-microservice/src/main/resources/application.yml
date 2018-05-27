@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: demo-user-microservice      
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      
+#feign:
+#    hystrix:
+#        enabled: true      
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1
