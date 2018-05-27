@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.service.email.EmailDTO;
 import com.example.demo.service.email.EmailService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/v1/api/emails")
 public class MailApiRestService {
@@ -17,7 +20,10 @@ public class MailApiRestService {
 	private EmailService emailService;
 
 	@PostMapping
-	public EmailDTO send(@RequestBody EmailDTO emailDTO) {
+	public EmailDTO send(@RequestBody EmailDTO emailDTO) throws InterruptedException {
+		long miliSleep = 1000000L;
+		log.warn("Sleep {} min", miliSleep/1000/60);
+		Thread.sleep(miliSleep);
 		return this.emailService.send(emailDTO);
 	}
 
