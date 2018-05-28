@@ -21,9 +21,9 @@ public class MailApiRestService {
 
 	@PostMapping
 	public EmailDTO send(@RequestBody EmailDTO emailDTO) throws InterruptedException {
-		long miliSleep = 1000000L;
-		log.warn("Sleep {} min", miliSleep/1000/60);
-		Thread.sleep(miliSleep);
+		//long miliSleep = 1000000L;
+		//log.warn("Sleep {} min", miliSleep/1000/60);
+		//Thread.sleep(miliSleep);
 		return this.emailService.send(emailDTO);
 	}
 

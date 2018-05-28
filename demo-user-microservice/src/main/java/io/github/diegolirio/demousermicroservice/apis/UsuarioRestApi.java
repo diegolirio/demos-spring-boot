@@ -1,9 +1,11 @@
 package io.github.diegolirio.demousermicroservice.apis;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.github.diegolirio.demousermicroservice.usuario.Usuario;
@@ -17,8 +19,9 @@ public class UsuarioRestApi {
 	private UsuarioService usuarioService;
 
 	@PostMapping
-	public Usuario save(@RequestBody Usuario usuario) {
-		return this.usuarioService.save(usuario);
+	@ResponseStatus(value=HttpStatus.NO_CONTENT)
+	public void save(@RequestBody Usuario usuario) {
+		this.usuarioService.save(usuario);
 	}
 	
 
