@@ -9,9 +9,9 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
       
-#feign:
-#    hystrix:
-#        enabled: true      
+feign:
+    hystrix:
+        enabled: true      
 
 hystrix:
   command:
@@ -19,4 +19,4 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 1
+            timeoutInMilliseconds: 5
