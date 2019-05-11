@@ -1,21 +1,23 @@
 package com.example.demojpa.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Data;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name="PRODUTO_TIPO")
-public class ProdutoTipo {
+@Table(name = "PRODUTO_TIPO")
+@Data
+public class ProdutoTipo implements Serializable {
 
-	@Id
-	@GeneratedValue
-	@Column(name="PRODUTO_TIPO_ID")
-	private Long id;
-	
-	@Column(name="PRODUTO_TIPO_DESCRICAO")
-	private String descricao;
-	
+    private static final long serialVersionUID = 6L;
+
+    @Id
+    @GeneratedValue
+    @Column(name = "PRODUTO_TIPO_ID")
+    private Long id;
+
+    @Column(name = "PRODUTO_TIPO_DESCRICAO")
+    private String descricao;
+
 }

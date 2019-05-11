@@ -1,17 +1,17 @@
 package com.example.demojpa.models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
+@Entity
 @Table(name="NOTA_ITEM")
-public class NotaItem {
+public class NotaItem implements Serializable {
+
+	private static final long serialVersionUID = 3L;
 
 	@Id
 	@GeneratedValue

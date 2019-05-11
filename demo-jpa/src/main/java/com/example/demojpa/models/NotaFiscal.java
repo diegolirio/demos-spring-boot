@@ -1,17 +1,18 @@
 package com.example.demojpa.models;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.Data;
 
 @Data
 @Table(name="NOTA_FISCAL")
-public class NotaFiscal {
+@Entity
+public class NotaFiscal implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue

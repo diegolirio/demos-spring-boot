@@ -10,11 +10,15 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
 @Entity
 @Table(name="PRODUTO")
-public class Produto {
-	
+public class Produto implements Serializable {
+
+	private static final long serialVersionUID = 5L;
+
 	@Id
 	@GeneratedValue
 	@Column(name="PRODUTO_ID")
