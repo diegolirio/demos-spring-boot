@@ -49,6 +49,7 @@ public class Application {
     }
 
 
+    // Parallel Stream (Future), Teste realizado com 4 nucleos de processadores
     @GetMapping("/future/list/{amount}")
     public List<Customer> futureList(@PathVariable int amount) {
 

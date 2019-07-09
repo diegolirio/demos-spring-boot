@@ -10,7 +10,6 @@ import java.util.Random;
 public class CustomerService {
 
     public Customer complementaFirstName(Customer c) {
-        log.info(c.toString());
         try {
             int sleep = new Random().nextInt((5 - 1) + 1);
             Thread.sleep(sleep * 1000);
