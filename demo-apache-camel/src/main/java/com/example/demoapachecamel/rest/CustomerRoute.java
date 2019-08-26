@@ -1,15 +1,12 @@
 package com.example.demoapachecamel.rest;
 
 import com.example.demoapachecamel.customer.Customer;
-import lombok.extern.java.Log;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.rest.RestBindingMode;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 
-@Log
 @Component
-class CustomerRoute extends RouteBuilder {
+public class CustomerRoute extends RouteBuilder {
 
     @Override
     public void configure() {
