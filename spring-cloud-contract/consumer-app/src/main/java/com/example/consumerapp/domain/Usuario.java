@@ -18,5 +18,5 @@ public class Usuario {
     private Float altura;
     private Float peso;
     private Float imc;
-    private ClassificationType classification;
+    private String classification;
 }

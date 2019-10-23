@@ -21,9 +21,9 @@ public class ConsumerAppController {
     public Map<String, String> execute() {
         Usuario usuario =
                 Usuario.builder()
-                        .nome("Diego")
+                        .nome("Diego Lirio")
                         .altura(1.77F)
-                        .peso(81.5F)
+                        .peso(80.5F)
                         .idade(32)
                         .email("test@gmail.com")
                         .build();
