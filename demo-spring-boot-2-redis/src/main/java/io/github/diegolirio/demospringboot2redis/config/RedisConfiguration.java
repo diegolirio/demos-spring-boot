@@ -13,7 +13,10 @@ public class RedisConfiguration {
 
     @Bean
     public LettuceConnectionFactory redisConnectionFactory() {
-        return new LettuceConnectionFactory();
+        LettuceConnectionFactory l = new LettuceConnectionFactory();
+        l.setHostName("redis-lirio.eastus.cloudapp.azure.com");
+        l.setPort(6379);
+        return l;
     }
 
     @Bean
