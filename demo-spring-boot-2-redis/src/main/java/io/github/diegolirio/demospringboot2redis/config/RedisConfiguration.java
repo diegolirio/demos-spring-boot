@@ -1,9 +1,11 @@
 package io.github.diegolirio.demospringboot2redis.config;
 
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 
@@ -11,17 +13,28 @@ import org.springframework.data.redis.repository.configuration.EnableRedisReposi
 @EnableRedisRepositories
 public class RedisConfiguration {
 
+    @Value("${spring.redis.host}")
+    private String host;
+    @Value("${spring.redis.port}")
+    private int port;
+
     @Bean
-    public LettuceConnectionFactory redisConnectionFactory() {
-        LettuceConnectionFactory l = new LettuceConnectionFactory();
-        l.setHostName("redis-lirio.eastus.cloudapp.azure.com");
-        l.setPort(6379);
-        return l;
+    public JedisConnectionFactory redisConnectionFactory() {
+        RedisStandaloneConfiguration config = new RedisStandaloneConfiguration(this.host, this.port);
+        return new JedisConnectionFactory(config);
     }
+
+//    @Bean
+//    public LettuceConnectionFactory redisConnectionFactory() {
+//        LettuceConnectionFactory l = new LettuceConnectionFactory();
+//        l.setHostName(host);
+//        l.setPort(port);
+//        return l;
+//    }
 
     @Bean
     public RedisTemplate<?, ?> redisTemplate() {
-        RedisTemplate<byte[], byte[]> template = new RedisTemplate<>();
+        RedisTemplate<String, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(redisConnectionFactory());
         return template;
     }

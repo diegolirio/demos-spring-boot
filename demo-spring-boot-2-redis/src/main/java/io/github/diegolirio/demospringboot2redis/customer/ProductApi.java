@@ -17,7 +17,7 @@ public class ProductApi {
 
     @GetMapping
     public Product save() {
-        Product p = Product.builder().description("IPhone X").price(1000D).build();
+        Product p = Product.builder().id("MY-ID").description("NOTEBOOK DELL").price(1000D).build();
         return this.productRepository.save(p);
     }
 
