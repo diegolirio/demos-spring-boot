@@ -9,6 +9,8 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 
+import java.util.concurrent.TimeUnit;
+
 @Configuration
 @EnableRedisRepositories
 public class RedisConfiguration {
@@ -36,6 +38,7 @@ public class RedisConfiguration {
     public RedisTemplate<?, ?> redisTemplate() {
         RedisTemplate<String, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(redisConnectionFactory());
+        template.expire("products", 10L, TimeUnit.SECONDS);
         return template;
     }
 }

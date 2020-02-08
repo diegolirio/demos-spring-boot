@@ -11,7 +11,7 @@ import org.springframework.data.redis.core.RedisHash;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@RedisHash("product")
+@RedisHash("products")
 public class Product {
 
     @Id
