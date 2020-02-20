@@ -1,13 +1,9 @@
 package com.example.dddhexagonal.customer.presentation;
 
 import com.example.dddhexagonal.customer.application.CustomerUseCase;
-import com.example.dddhexagonal.customer.domain.Customer;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -19,21 +15,13 @@ public class CustomerController {
 
     @GetMapping
     public List<CustomerResponse> getAll() {
-        return this.toMap(this.customerUseCase.getAll());
+        return this.customerUseCase.getAll();
     }
 
-    private List<CustomerResponse> toMap(List<Customer> customers) {
-        List<CustomerResponse> customersResp = new ArrayList<>();
-        customers.forEach(c -> {
-            CustomerResponse customerResponse =
-                    CustomerResponse
-                        .builder()
-                        .firstname(c.getFirstname())
-                        .lastname(c.getLastname())
-                        .build();
-            customersResp.add(customerResponse);
-        });
-        return customersResp;
+    @PostMapping
+    public CustomerResponseID save(@RequestBody CustomerRequest customerRequest) {
+        return this.customerUseCase.save(customerRequest);
     }
+
 
 }
