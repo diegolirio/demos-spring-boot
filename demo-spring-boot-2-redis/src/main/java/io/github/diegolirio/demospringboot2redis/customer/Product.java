@@ -11,7 +11,7 @@ import org.springframework.data.redis.core.RedisHash;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@RedisHash("products")
+@RedisHash(value = "products",timeToLive = 60)
 public class Product {
 
     @Id

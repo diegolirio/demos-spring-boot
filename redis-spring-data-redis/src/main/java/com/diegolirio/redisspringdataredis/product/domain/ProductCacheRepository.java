@@ -1,8 +1,10 @@
 package com.diegolirio.redisspringdataredis.product.domain;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import java.util.List;
 
-@Repository
-public interface ProductCacheRepository extends CrudRepository<Product, String> {
+public interface ProductCacheRepository {
+
+    Product save(Product product);
+
+    List<Product> findAll();
 }
