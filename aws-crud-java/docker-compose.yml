@@ -1,0 +1,13 @@
+version: '3'
+services:
+  aws-crud-java:
+    image: registry.springhome.com.br/aws-crud-java:0.0.1-SNAPSHOT
+    container_name: aws-crud-java
+    restart: always
+    ports:
+      - 8080:8080
+    #environment:
+      #- DISCOVERY_URL=http://homolog.springhome.com.br:8761/eureka/
+      #- MONGO_DEFAULT_URI=mongodb://user_crud:product@ds241039.mlab.com:41039/product
+      #- NON_SECURE_PORT=88080
+      #- DOMAIN_NAME=51.15.205.247
