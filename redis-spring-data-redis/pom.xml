@@ -16,7 +16,7 @@
 
 	<properties>
 		<java.version>11</java.version>
-		<registry>registry.springhome.com.br</registry>
+		<registry>diegolirio</registry>
 	</properties>
 
 	<dependencies>
