@@ -26,4 +26,9 @@ public class ProductServiceImpl implements ProductService {
         return this.productCacheRepository.findAll();
     }
 
+    @Override
+    public void delete(String id) {
+        this.productCacheRepository.deleteById(id);
+    }
+
 }

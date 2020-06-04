@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisClusterConfiguration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -13,7 +12,6 @@ import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisCluster;
 
-import java.net.URI;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -56,10 +54,10 @@ public class RedisConfig {
 
     // 2
 
-//    @Bean
-//    public Jedis jedis() {
-//        return new Jedis(host, port);
-//    }
+    @Bean
+    public Jedis jedis() {
+        return new Jedis(host, port);
+    }
 
 
 //    @Bean
@@ -75,26 +73,26 @@ public class RedisConfig {
 //        return template;
 //    }
 
-    // 3
-
     @Bean
-    public Jedis jedis() {
-        Jedis jedis = new Jedis(URI.create( String.format("rediss://%s:%s", host, port)));
-        return jedis;
+    RedisConnectionFactory connectionFactory() {
+        return new JedisConnectionFactory(new RedisClusterConfiguration(clusterNodes));
     }
 
+    List<String> clusterNodes = Arrays.asList(
+            "elasticacheredis-0001-001.opoms5.0001.use2.cache.amazonaws.com:6379",
+            "elasticacheredis-0001-002.opoms5.0001.use2.cache.amazonaws.com:6379",
+            "elasticacheredis-0001-003.opoms5.0001.use2.cache.amazonaws.com:6379",
+            "elasticacheredis-0002-001.opoms5.0001.use2.cache.amazonaws.com:6379",
+            "elasticacheredis-0002-002.opoms5.0001.use2.cache.amazonaws.com:6379",
+            "elasticacheredis-0002-003.opoms5.0001.use2.cache.amazonaws.com:6379",
+            "elasticacheredis-0003-001.opoms5.0001.use2.cache.amazonaws.com:6379",
+            "elasticacheredis-0003-002.opoms5.0001.use2.cache.amazonaws.com:6379",
+            "elasticacheredis-0003-003.opoms5.0001.use2.cache.amazonaws.com:6379"
+    );
 
     @Bean
-    public JedisConnectionFactory redisConnectionFactory(final String host, final int port) {
-        return new JedisConnectionFactory(new RedisStandaloneConfiguration(host, port));
-    }
-
-    @Bean
-    public RedisTemplate<?, ?> redisTemplate(@Value("${spring.redis.host}") final String host,
-                                             @Value("${spring.redis.port}") final int port) {
-        RedisTemplate<String, Object> template = new RedisTemplate<>();
-        template.setConnectionFactory(redisConnectionFactory(host, port));
-        return template;
+    RedisTemplate<String, String> redisTemplate(RedisConnectionFactory factory) {
+        return new StringRedisTemplate(factory);
     }
 
 }

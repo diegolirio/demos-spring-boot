@@ -14,7 +14,7 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class ProductJedisRepository implements ProductCacheRepository {
 
-    private final Jedis jedis;
+    private final Jedis jedis;  
 
     private final static String PRODUCTS = "products";
     private static String keyHash = PRODUCTS.concat(":%s");
@@ -37,6 +37,11 @@ public class ProductJedisRepository implements ProductCacheRepository {
             list.add(product);
         });
         return list;
+    }
+
+    @Override
+    public void deleteById(String id) {
+        throw new RuntimeException("Not Implemented");
     }
 
     public Object convertValue(Object object, Class clazz) {

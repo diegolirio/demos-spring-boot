@@ -7,4 +7,6 @@ public interface ProductCacheRepository {
     Product save(Product product);
 
     List<Product> findAll();
+
+    void deleteById(String id);
 }

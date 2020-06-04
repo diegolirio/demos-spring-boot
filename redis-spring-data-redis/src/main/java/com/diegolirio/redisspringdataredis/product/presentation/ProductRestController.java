@@ -3,6 +3,7 @@ package com.diegolirio.redisspringdataredis.product.presentation;
 import com.diegolirio.redisspringdataredis.product.application.ProductService;
 import com.diegolirio.redisspringdataredis.product.domain.Product;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,5 +23,11 @@ public class ProductRestController {
     @GetMapping
     public List<Product> getAll() {
         return this.productService.findAll();
+    }
+
+    @DeleteMapping
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable String id) {
+        this.productService.delete(id);
     }
 }
