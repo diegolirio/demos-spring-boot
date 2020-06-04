@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.diegolirio</groupId>
 	<artifactId>redis-spring-data-redis</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-DEMO</version>
 	<name>redis-spring-data-redis</name>
 	<description>Redis - Spring-Data-Redis</description>
 
