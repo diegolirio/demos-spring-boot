@@ -1,0 +1,30 @@
+version: '3'
+services:
+  redis:
+    image: registry.springhome.com.br/redis-spring-data-redis:0.0.1-SNAPSHOT
+    container_name: redis
+    restart: always
+    ports:
+      - 8080:8080
+      #- 80:8080
+    #environment:
+      #- DISCOVERY_URL=http://homolog.springhome.com.br:8761/eureka/
+      #- MONGO_DEFAULT_URI=mongodb://user_crud:product@ds241039.mlab.com:41039/customer
+      #- NON_SECURE_PORT=88080
+      #- DOMAIN_NAME=51.15.205.247
+    networks:
+      - elasticache
+#  redis:
+#    image: redis
+#    container_name: redis
+#    restart: always
+#    ports:
+#      - 6379:6379
+    #volumes:
+    #    - /var/redis:/redis
+#    networks:
+#      - game_on
+
+networks:
+  elasticache:
+    driver: bridge
