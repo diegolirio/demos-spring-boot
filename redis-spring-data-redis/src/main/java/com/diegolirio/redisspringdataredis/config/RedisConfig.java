@@ -79,15 +79,24 @@ public class RedisConfig {
     }
 
     List<String> clusterNodes = Arrays.asList(
-            "elasticacheredis-0001-001.opoms5.0001.use2.cache.amazonaws.com:6379",
-            "elasticacheredis-0001-002.opoms5.0001.use2.cache.amazonaws.com:6379",
-            "elasticacheredis-0001-003.opoms5.0001.use2.cache.amazonaws.com:6379",
-            "elasticacheredis-0002-001.opoms5.0001.use2.cache.amazonaws.com:6379",
-            "elasticacheredis-0002-002.opoms5.0001.use2.cache.amazonaws.com:6379",
-            "elasticacheredis-0002-003.opoms5.0001.use2.cache.amazonaws.com:6379",
-            "elasticacheredis-0003-001.opoms5.0001.use2.cache.amazonaws.com:6379",
-            "elasticacheredis-0003-002.opoms5.0001.use2.cache.amazonaws.com:6379",
-            "elasticacheredis-0003-003.opoms5.0001.use2.cache.amazonaws.com:6379"
+//            "elasticacheredis-0001-001.opoms5.0001.use2.cache.amazonaws.com:6379",
+//            "elasticacheredis-0001-002.opoms5.0001.use2.cache.amazonaws.com:6379",
+//            "elasticacheredis-0001-003.opoms5.0001.use2.cache.amazonaws.com:6379",
+//            "elasticacheredis-0002-001.opoms5.0001.use2.cache.amazonaws.com:6379",
+//            "elasticacheredis-0002-002.opoms5.0001.use2.cache.amazonaws.com:6379",
+//            "elasticacheredis-0002-003.opoms5.0001.use2.cache.amazonaws.com:6379",
+//            "elasticacheredis-0003-001.opoms5.0001.use2.cache.amazonaws.com:6379",
+//            "elasticacheredis-0003-002.opoms5.0001.use2.cache.amazonaws.com:6379",
+//            "elasticacheredis-0003-003.opoms5.0001.use2.cache.amazonaws.com:6379"
+            "id-grupo-replicacao-demo-1001-001.id-grupo-replicacao-demo.saesj9.sae1.cache.amazonaws.com:6379",
+            "id-grupo-replicacao-demo-1001-002.id-grupo-replicacao-demo.saesj9.sae1.cache.amazonaws.com:6379",
+            "id-grupo-replicacao-demo-1001-003.id-grupo-replicacao-demo.saesj9.sae1.cache.amazonaws.com:6379",
+            "id-grupo-replicacao-demo-1002-001.id-grupo-replicacao-demo.saesj9.sae1.cache.amazonaws.com:6379",
+            "id-grupo-replicacao-demo-1002-002.id-grupo-replicacao-demo.saesj9.sae1.cache.amazonaws.com:6379",
+            "id-grupo-replicacao-demo-1002-003.id-grupo-replicacao-demo.saesj9.sae1.cache.amazonaws.com:6379",
+            "id-grupo-replicacao-demo-1003-001.id-grupo-replicacao-demo.saesj9.sae1.cache.amazonaws.com:6379",
+            "id-grupo-replicacao-demo-1003-002.id-grupo-replicacao-demo.saesj9.sae1.cache.amazonaws.com:6379",
+            "id-grupo-replicacao-demo-1003-003.id-grupo-replicacao-demo.saesj9.sae1.cache.amazonaws.com:6379"
     );
 
     @Bean
