@@ -13,6 +13,8 @@ public interface ProductService {
 
 	List<Product> findAll();
 
+	Product save(Product product);
+
 }
 
 @Service
@@ -24,6 +26,11 @@ class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> findAll() {
         return new Product().findAll(productRepository);
+    }
+
+    @Override
+    public Product save(Product product) {
+        return this.productRepository.save(product);
     }
 
 }

@@ -1,4 +1,25 @@
+---
 spring:
+    profiles: default, local
     redis:
         host: ${REDIS_HOST:localhost}
         port: ${REDIS_PORT:6379}
+        
+enableCluster: false        
+---
+spring:
+    profiles: aws
+redis:
+    cluster:
+        nodes:
+        - elasticacheredis-0001-001.opoms5.0001.use2.cache.amazonaws.com:6379
+        - elasticacheredis-0001-002.opoms5.0001.use2.cache.amazonaws.com:6379
+        - elasticacheredis-0001-003.opoms5.0001.use2.cache.amazonaws.com:6379
+        - elasticacheredis-0002-001.opoms5.0001.use2.cache.amazonaws.com:6379
+        - elasticacheredis-0002-002.opoms5.0001.use2.cache.amazonaws.com:6379
+        - elasticacheredis-0002-003.opoms5.0001.use2.cache.amazonaws.com:6379
+        - elasticacheredis-0003-001.opoms5.0001.use2.cache.amazonaws.com:6379
+        - elasticacheredis-0003-002.opoms5.0001.use2.cache.amazonaws.com:6379
+        - elasticacheredis-0003-003.opoms5.0001.use2.cache.amazonaws.com:6379
+
+enableCluster: true

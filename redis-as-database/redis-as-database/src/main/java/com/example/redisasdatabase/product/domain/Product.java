@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@RedisHash("products")
+@RedisHash("productss")
 public class Product {
 
     @Id
@@ -23,6 +23,10 @@ public class Product {
 
     public List<Product> findAll(ProductRepository productRepository) {
 		return productRepository.findAll();
+	}
+
+	public Product save(ProductRepository productRepository) {
+		return productRepository.save(this);
 	}
 
 }

@@ -11,6 +11,7 @@ import com.example.redisasdatabase.product.application.ProductService;
 import com.example.redisasdatabase.product.domain.Product;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 @RestController
@@ -24,6 +25,12 @@ public class ProductController {
     public List<Product> getAll() {
         return this.productService.findAll();
     }
+
+    @GetMapping("/save")
+    public Product save() {
+        Product product = Product.builder().name("Diego").build();
+        return this.productService.save(product);
+    }    
     
     
 }
