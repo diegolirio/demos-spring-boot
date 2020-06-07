@@ -1,6 +1,7 @@
 package com.example.redisasdatabase.product.application;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.example.redisasdatabase.product.domain.Product;
 import com.example.redisasdatabase.product.domain.ProductRepository;
@@ -14,6 +15,10 @@ public interface ProductService {
 	List<Product> findAll();
 
 	Product save(Product product);
+
+	void delete(String id);
+
+	Optional<Product> findById(String id);
 
 }
 
@@ -30,7 +35,22 @@ class ProductServiceImpl implements ProductService {
 
     @Override
     public Product save(Product product) {
-        return this.productRepository.save(product);
+        return product.save(productRepository);
+    }
+
+    @Override
+    public void delete(String id) {
+        this.findById(id)
+            .orElseThrow()
+            .delete(productRepository);
+    }
+
+    @Override
+    public Optional<Product> findById(String id) {
+        return Product.builder()
+            .id(id)
+            .build()
+            .findById(productRepository);
     }
 
 }

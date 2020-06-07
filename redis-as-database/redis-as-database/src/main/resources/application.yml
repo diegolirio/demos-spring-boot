@@ -1,3 +1,6 @@
+spring:
+    profiles:
+        active: local
 ---
 spring:
     profiles: default, local
@@ -9,6 +12,9 @@ enableCluster: false
 ---
 spring:
     profiles: aws
+    redis:
+        host: ${REDIS_HOST:localhost}
+        port: ${REDIS_PORT:6379}    
 redis:
     cluster:
         nodes:
