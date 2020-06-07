@@ -36,7 +36,7 @@ public class ProductController {
         return this.productService.save(product);
     }    
     
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable String id) {
         this.productService.delete(id);
