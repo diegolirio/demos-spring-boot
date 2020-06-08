@@ -1,7 +1,7 @@
 package com.example.redismscustomer.customer.presentation;
 
 @RestController
-public class RedisMsCustomerApplication {
+public class CustomerRestController {
 
 
 }
