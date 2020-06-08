@@ -12,10 +12,10 @@ public class RedisConfig {
     public Jedis jedis() {
         return new Jedis();
     }
-
-    @Bean
-    public JedisClusterConnection jedisCluster() {
-        return null;
-    }
+//
+//    @Bean
+//    public JedisClusterConnection jedisCluster() {
+//        return null;
+//    }
 
 }
