@@ -28,4 +28,4 @@ redis:
         #- elasticacheredis-0003-002.opoms5.0001.use2.cache.amazonaws.com:6379
         #- elasticacheredis-0003-003.opoms5.0001.use2.cache.amazonaws.com:6379
 
-enableCluster: true
+enableCluster: false

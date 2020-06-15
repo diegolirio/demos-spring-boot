@@ -1,14 +1,15 @@
 version: '3'
 services:
   redis:
-    image: diegolirio/redis-as-database:0.0.1-SNAPSHOT
+    image: diegolirio/redis-as-database:0.0.2-SNAPSHOT
     container_name: redis
     restart: always
     ports:
       - 8080:8080
-    #environment:
-    #  - REDIS_HOST=elasticacheredis.opoms5.clustercfg.use2.cache.amazonaws.com
-    #  - REDIS_PORT=6379
+      - 80:8080
+    environment:
+      - REDIS_HOST=192.168.0.105
+      - REDIS_PORT=6379
     networks:
       - elasticache
   #redis-customer:
