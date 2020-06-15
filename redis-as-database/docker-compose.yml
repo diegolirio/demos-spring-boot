@@ -7,9 +7,9 @@ services:
     ports:
       - 8080:8080
       - 80:8080
-    environment:
-      - REDIS_HOST=192.168.0.105
-      - REDIS_PORT=6379
+    #environment:
+    #  - REDIS_HOST=192.168.0.105
+    #  - REDIS_PORT=6379
     networks:
       - elasticache
   #redis-customer:
