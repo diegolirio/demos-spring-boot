@@ -57,6 +57,7 @@ public class RedisConfig {
             RedisClusterConfiguration redisClusterConfiguration = new RedisClusterConfiguration(redisCluster.getNodes());            
             jedisConnectionFactory = new JedisConnectionFactory(redisClusterConfiguration);
         } else {   
+            log.info("Host => {}:{}", host, port);
             RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration(host, port);
             redisStandaloneConfiguration.setDatabase(10);
             jedisConnectionFactory = new JedisConnectionFactory(redisStandaloneConfiguration);
