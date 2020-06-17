@@ -10,7 +10,6 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
 import lombok.extern.slf4j.Slf4j;
-import redis.clients.jedis.Jedis;
 
 @Slf4j
 @Configuration
@@ -41,7 +40,9 @@ public class RedisConfig {
             log.info("Host => {}:{}", host, port);
             RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration(host, port);
             redisStandaloneConfiguration.setDatabase(10);
+            redisStandaloneConfiguration.setPassword("d72f3d09-a29c-4996-8419-486c5d4528d5");
             jedisConnectionFactory = new JedisConnectionFactory(redisStandaloneConfiguration);
+            jedisConnectionFactory.setUseSsl(true);
         }
         return jedisConnectionFactory;
     }
