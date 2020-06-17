@@ -10,9 +10,7 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.ArrayList;
-import java.util.List;
+import redis.clients.jedis.Jedis;
 
 @Slf4j
 @Configuration
@@ -30,23 +28,6 @@ public class RedisConfig {
 
     @Value("${spring.redis.port}")
     private int port;
-
-    // @Bean
-    // public JedisConnectionFactory redisConnectionFactory(final String host, final
-    // int port) {
-    // JedisConnectionFactory jedisConnectionFactory = new
-    // JedisConnectionFactory(new RedisStandaloneConfiguration(host, port));
-    // return jedisConnectionFactory;
-    // }
-
-    // @Bean
-    // public RedisTemplate<?, ?> redisTemplate(@Value("${spring.redis.host}") final
-    // String host,
-    // @Value("${spring.redis.port}") final int port) {
-    // final RedisTemplate<String, Object> template = new RedisTemplate<>();
-    // template.setConnectionFactory(redisConnectionFactory(host, port));
-    // return template;
-    // }
 
     @Bean
     JedisConnectionFactory jedisConnectionFactory() {
@@ -71,5 +52,15 @@ public class RedisConfig {
         template.setConnectionFactory(jedisConnectionFactory());
         return template;
     }
+
+    // @Bean
+    // public Jedis jedis() {
+    //     Jedis jedis = new Jedis(this.host, this.port, true);
+    //     jedis.connect();
+    //     //jedis.auth("secret");
+
+    //     //System.out.println(jedis.ping());
+    //     return jedis;
+    // }
         
 }
