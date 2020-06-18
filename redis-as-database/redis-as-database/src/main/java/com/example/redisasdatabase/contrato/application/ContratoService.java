@@ -14,6 +14,7 @@ import com.example.redisasdatabase.contrato.domain.Message;
 import com.example.redisasdatabase.contrato.domain.Summary;
 
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import lombok.RequiredArgsConstructor;
 
@@ -24,9 +25,8 @@ public class ContratoService {
 	private final ContratoRepository repository;
 
     public ContratoResponse getByCpfCnpj(final String cpfCnpj, final String codigo) {
-
         Optional<ContratoResponse> buscaNoRedis = this.getCodigo(codigo);
-        if(buscaNoRedis.isPresent()) {
+        if(codigo != null && buscaNoRedis.isPresent()) {
             return buscaNoRedis.get();
         }
 
@@ -55,8 +55,10 @@ public class ContratoService {
 	}
 
     private Optional<ContratoResponse> getCodigo(String codigo) {
+        if(StringUtils.isEmpty(codigo)) {
+            return Optional.empty();
+        }
         return repository.findById(codigo);
-        //return this.contratoRepository.findByCodigo(codigo);
     }
 
 }
