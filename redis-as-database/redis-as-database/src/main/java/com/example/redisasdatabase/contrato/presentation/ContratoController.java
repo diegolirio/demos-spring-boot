@@ -21,8 +21,9 @@ public class ContratoController {
 
     @GetMapping("/{cpfCnpj}")
     public ContratoResponse getByCpfCnpj(@PathVariable String cpfCnpj,
-                                         String codigo) {
-        return this.contratoService.getByCpfCnpj(cpfCnpj, codigo);
+                                         String codigo,
+                                         Long jornada) {
+        return this.contratoService.getByCpfCnpj(cpfCnpj, codigo, jornada);
     }
 
 }

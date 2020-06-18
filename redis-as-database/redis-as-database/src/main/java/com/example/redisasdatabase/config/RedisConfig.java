@@ -1,6 +1,7 @@
 package com.example.redisasdatabase.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,14 +21,25 @@ public class RedisConfig {
     @Value("${spring.redis.port}")
     private int port;
 
+    //@Value("${spring.redis.password}")
+    @Autowired
+    @Qualifier("awsSecretRedisAuth")
+    private String password;
+
+    @Value("${spring.redis.ssl}")
+    private boolean ssl;
+
+    @Value("${spring.redis.database}")
+    private int database;
+
     @Bean
     JedisConnectionFactory jedisConnectionFactory() {
         log.info("Host => {}:{}", host, port);
         RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration(host, port);
-        redisStandaloneConfiguration.setDatabase(10);
-        redisStandaloneConfiguration.setPassword("d72f3d09-a29c-4996-8419-486c5d4528d5");
+        redisStandaloneConfiguration.setDatabase(database);
+        redisStandaloneConfiguration.setPassword(password);
         JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory(redisStandaloneConfiguration);
-        jedisConnectionFactory.setUseSsl(true);
+        jedisConnectionFactory.setUseSsl(ssl);
         return jedisConnectionFactory;
     }
     

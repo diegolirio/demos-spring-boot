@@ -7,25 +7,15 @@ spring:
     redis:
         host: ${REDIS_HOST:localhost}
         port: ${REDIS_PORT:6379}
-        
-enableCluster: false        
+        password: 
+        ssl: false
+        database: 10
 ---
 spring:
     profiles: aws
     redis:
-        host: ${REDIS_HOST:localhost}
+        host: ${REDIS_HOST:localhost} 
         port: ${REDIS_PORT:6379}    
-redis:
-    cluster:
-        nodes:
-        - elasticacheredis-0001-001.opoms5.0001.use2.cache.amazonaws.com:6379
-        - elasticacheredis-0001-002.opoms5.0001.use2.cache.amazonaws.com:6379
-        - elasticacheredis-0001-003.opoms5.0001.use2.cache.amazonaws.com:6379
-        #- elasticacheredis-0002-001.opoms5.0001.use2.cache.amazonaws.com:6379
-        #- elasticacheredis-0002-002.opoms5.0001.use2.cache.amazonaws.com:6379
-        #- elasticacheredis-0002-003.opoms5.0001.use2.cache.amazonaws.com:6379
-        #- elasticacheredis-0003-001.opoms5.0001.use2.cache.amazonaws.com:6379
-        #- elasticacheredis-0003-002.opoms5.0001.use2.cache.amazonaws.com:6379
-        #- elasticacheredis-0003-003.opoms5.0001.use2.cache.amazonaws.com:6379
-
-enableCluster: false
+        password: ${REDIS_PASS:d72f3d09-a29c-4996-8419-486c5d4528d5}
+        ssl: true
+        database: 10

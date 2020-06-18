@@ -24,35 +24,24 @@ public class ContratoService {
 
 	private final ContratoRepository repository;
 
-    public ContratoResponse getByCpfCnpj(final String cpfCnpj, final String codigo) {
+    public ContratoResponse getByCpfCnpj(final String cpfCnpj, final String codigo, final Long jornadaNumero) {
         Optional<ContratoResponse> buscaNoRedis = this.getCodigo(codigo);
-        if(codigo != null && buscaNoRedis.isPresent()) {
+        if(buscaNoRedis.isPresent()) {
             return buscaNoRedis.get();
         }
-
-        Map<String, Double> hashMap = new HashMap<>();
-        hashMap.put("amount", 0.0D);
-
-        Summary summary = Summary.builder()
-                                .field("valor")
-                                .value(hashMap)
-                                .build();
-
-        Contrato contrato = Contrato.builder()
-                                    .codigo("95622")
-                                    .idContrato("6526252")
-                                    .valor(1520.99D)
-                                    .build();
-
-        final ContratoResponse response = new ContratoResponse();
-        response.setCodigo(UUID.randomUUID().toString());
-        response.setSummary(List.of(summary));
-        response.setMessage(Message.builder().codigo("success").mesangem("OK").build());
-        response.setJornada(new Jornada(555L, LocalDateTime.now()));
-        response.setContratos(List.of(contrato));
-
+        Optional<ContratoResponse> findByJornada = this.getJornadaNumero(jornadaNumero);
+        if(findByJornada.isPresent()) {
+            return findByJornada.get();
+        }        
+        final ContratoResponse response = ContratoResponse.getInstance();
         return this.repository.save(response);
 	}
+
+    private Optional<ContratoResponse> getJornadaNumero(Long jornadaNumero) {
+        if(jornadaNumero == null) {
+            return Optional.empty();
+        }
+        return repository.findByJornadaNumero(jornadaNumero);    }
 
     private Optional<ContratoResponse> getCodigo(String codigo) {
         if(StringUtils.isEmpty(codigo)) {
