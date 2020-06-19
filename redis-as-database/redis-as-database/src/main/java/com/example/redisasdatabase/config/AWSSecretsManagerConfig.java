@@ -59,13 +59,18 @@ public class AWSSecretsManagerConfig {
 
         // Decrypts secret using the associated KMS CMK.
         // Depending on whether the secret is a string or binary, one of these fields will be populated.
+
+        System.out.println("=========================================");
+
         if (getSecretValueResult.getSecretString() != null) {
             secret = getSecretValueResult.getSecretString();
             System.out.println(secret);
+            System.out.println("=========================================");
             return secret;
         } else {
             decodedBinarySecret = new String(Base64.getDecoder().decode(getSecretValueResult.getSecretBinary()).array());
             System.out.println(decodedBinarySecret);
+            System.out.println("=========================================");
             return decodedBinarySecret;
         }
     }
