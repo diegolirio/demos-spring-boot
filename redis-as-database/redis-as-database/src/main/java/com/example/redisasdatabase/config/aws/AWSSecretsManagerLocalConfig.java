@@ -1,4 +1,4 @@
-package com.example.redisasdatabase.config;
+package com.example.redisasdatabase.config.aws;
 
 import com.amazonaws.services.secretsmanager.AWSSecretsManager;
 import com.amazonaws.services.secretsmanager.AWSSecretsManagerClientBuilder;

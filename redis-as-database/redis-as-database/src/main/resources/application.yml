@@ -10,6 +10,11 @@ spring:
         password: 
         ssl: false
         database: 10
+
+#aws:
+#    secretsManager:
+#        secretName: demo/redis/auth
+#        region: region
 ---
 spring:
     profiles: aws
@@ -19,3 +24,8 @@ spring:
         password: ${REDIS_PASS:d72f3d09-a29c-4996-8419-486c5d4528d5}
         ssl: true
         database: 10
+
+aws:
+    secretsManager:
+        secretName: demo/redis/auth
+        region: region
