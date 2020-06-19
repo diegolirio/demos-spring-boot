@@ -1,31 +1,29 @@
 spring:
     profiles:
-        active: local 
+        active: local
 ---
 spring:
     profiles: default, local
     redis:
         host: ${REDIS_HOST:localhost}
         port: ${REDIS_PORT:6379}
-        password: 
         ssl: false
-        database: 10
-
-#aws:
-#    secretsManager:
-#        secretName: demo/redis/auth
-#        region: region
----
-spring:
-    profiles: aws
-    redis:
-        host: ${REDIS_HOST:localhost} 
-        port: ${REDIS_PORT:6379}    
-        password: ${REDIS_PASS:d72f3d09-a29c-4996-8419-486c5d4528d5}
-        ssl: true
         database: 10
 
 aws:
     secretsManager:
         secretName: demo/redis/auth
         region: region
+---
+spring:
+    profiles: aws
+    redis:
+        host: ${REDIS_HOST:localhost} 
+        port: ${REDIS_PORT:6379}
+        ssl: true
+        database: 10
+
+aws:
+    secretsManager:
+        secretName: demo/redis/auth
+        region: us-east-1

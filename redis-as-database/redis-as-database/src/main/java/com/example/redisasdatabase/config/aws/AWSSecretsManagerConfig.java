@@ -16,10 +16,10 @@ import java.util.Base64;
 @Configuration
 public class AWSSecretsManagerConfig {
 
-    @Value("aws.secretManager.secretName")
+    @Value("${aws.secretsManager.secretName}")
     private String secretName;
 
-    @Value("aws.secretManager.region")
+    @Value("${aws.secretsManager.region}")
     private String region;
 
     @Bean("awsSecretRedisAuth")
