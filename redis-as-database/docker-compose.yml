@@ -1,7 +1,7 @@
 version: '3'
 services:
   redis:
-    image: diegolirio/redis-as-database:0.1.2-SNAPSHOT
+    image: diegolirio/redis-as-database:0.1.3-SNAPSHOT
     container_name: redis
     restart: always
     ports:
