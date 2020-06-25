@@ -49,10 +49,9 @@ Resources:
         apt install docker.io -y
         curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose 
         chmod +x /usr/local/bin/docker-compose
-        wget https://raw.githubusercontent.com/diegolirio/demos-spring-boot/master/redis-as-database/docker-compose.yml
+        wget https://raw.githubusercontent.com/diegolirio/demos-spring-boot/master/redis-as-database/devops/docker-compose.yml
         sudo docker-compose up -d
-        export REDIS_HOST="master.redis-cluster-re2.gyyko2.use1.cache.amazonaws.com"     
-        export REDIS_PORT="6379"
+        
 
       Tags:
         - Key: Name
