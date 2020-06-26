@@ -50,9 +50,9 @@ Resources:
         curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose 
         chmod +x /usr/local/bin/docker-compose
         wget https://raw.githubusercontent.com/diegolirio/demos-spring-boot/master/redis-as-database/devops/docker-compose.yml
+        wget https://raw.githubusercontent.com/diegolirio/demos-spring-boot/master/redis-as-database/devops/prometheus.yml
         sudo docker-compose up -d
         
-
       Tags:
         - Key: Name
           Value: MinhaEC2PublicaDemoTag
