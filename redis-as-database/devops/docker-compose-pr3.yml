@@ -33,3 +33,7 @@ services:
   #    - elasticache
   #  depends_on:
   #  - app    
+
+networks:
+  elasticache:
+    driver: bridge
