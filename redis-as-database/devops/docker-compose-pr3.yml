@@ -10,8 +10,8 @@ services:
     environment:
       - REDIS_HOST=master.redis-cluster-pr3.81kfs0.sae1.cache.amazonaws.com
       - REDIS_PORT=6379
-    networks:
-      - elasticache
+    #networks:
+    #  - elasticache
       
   #grafana:
   #  image: grafana/grafana
