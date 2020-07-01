@@ -23,15 +23,17 @@ public class AWSSecretsManagerConfig {
 
     @Bean("awsSecretRedisAuth")
     public String getSecret() throws JsonProcessingException {
-        AWSSecretsManager client = AWSSecretsManagerClientBuilder.standard()
-                                                                 .withRegion(region)
-                                                                 .build();
+    //     AWSSecretsManager client = AWSSecretsManagerClientBuilder.standard()
+    //                                                              .withRegion(region)
+    //                                                              .build();
 
-        GetSecretValueRequest getSecretValueRequest = new GetSecretValueRequest().withSecretId(secretName);
-        GetSecretValueResult getSecretValueResult = client.getSecretValue(getSecretValueRequest);
+    //     GetSecretValueRequest getSecretValueRequest = new GetSecretValueRequest().withSecretId(secretName);
+    //     GetSecretValueResult getSecretValueResult = client.getSecretValue(getSecretValueRequest);
 
-        String secret = getSecretValueResult.getSecretString();
-        RedisAuth redisAuth = new ObjectMapper().readValue(secret, RedisAuth.class);
-        return redisAuth.getRedisAuth();
+    //     String secret = getSecretValueResult.getSecretString();
+    //     RedisAuth redisAuth = new ObjectMapper().readValue(secret, RedisAuth.class);
+    //     return redisAuth.getRedisAuth();
+        return "d72f3d09-a29c-4996-8419-486c5d4528d5";
     }
+    
 }
