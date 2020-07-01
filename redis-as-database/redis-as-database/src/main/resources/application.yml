@@ -43,7 +43,7 @@ spring:
 
 aws:
     secretsManager:
-        secretName: demo/redis/auth
+        secretName: dev/redis/auth
         region: region
 ---
 spring:
@@ -56,5 +56,5 @@ spring:
 
 aws:
     secretsManager:
-        secretName: demo/redis/auth
+        secretName: dev/redis/auth
         region: us-east-1

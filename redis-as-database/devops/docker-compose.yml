@@ -14,6 +14,7 @@ services:
       - elasticache
   grafana:
     image: grafana/grafana
+    restart: always
     ports:
     - "3000:3000"  
     networks:
@@ -21,6 +22,7 @@ services:
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
+    restart: always
     ports:
     - 9090:9090
     command:
