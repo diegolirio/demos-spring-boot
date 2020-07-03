@@ -23,10 +23,12 @@ management:
             enabled: true
         prometheus:
             enabled: true
+        health:
+            show-details: always            
     endpoints:
         web:
             exposure:
-                include: health,info,metrics,prometheus
+                include: health,info,metrics,prometheus,redis
     metrics:
         export:
             prometheus:
@@ -41,10 +43,16 @@ spring:
         ssl: false
         database: 10
 
+# info:
+#     app:
+#         name: ${project.artifactId}
+#         version: ${project.version}
+
 aws:
     secretsManager:
         secretName: dev/redis/auth
         region: region
+ 
 ---
 spring:
     profiles: aws

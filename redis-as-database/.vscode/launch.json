@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-RedisAsDatabaseApplication<redis-as-database>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.example.redisasdatabase.RedisAsDatabaseApplication",
+            "projectName": "redis-as-database",
+            "args": ""
+        }
+    ]
+}
