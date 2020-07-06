@@ -35,6 +35,20 @@
 
 ### Arquitetura de Código
 
+    src/
+     |------ main/
+                  |------- java/
+                             |------- br.com.itau.padraocodigo
+                                                      |------- Application.java
+                                                      |------- config
+                                                      |------- integration
+                                                      |------- contratos
+                                                                   |------- controllers
+                                                                   |------- mappers
+                                                                   |------- dominios
+                                                                   |------- facade
+     |------ test/
+
 ### Trabalhando com Threads
 
 ### Dicas 
