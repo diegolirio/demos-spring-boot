@@ -60,7 +60,7 @@ Facade está ligada diretamente a arquitetura e significa Fachada. Facade é uma
 
 ##### Dominios   
    
-Separamos os modelos chamados de Dominio (Domain). Um ponto muito importante é seguir o padrão [BoundedContext](https://martinfowler.com/bliki/BoundedContext.html) (DDD), separando os modelos dentro dos microservices, com o objetivo de fatiar o Serviço facilmente se caso estiver crescendo muito para evitar se tornar um monolito.   
+Separamos os modelos chamados de Dominio (Domain). Um ponto muito importante é seguir o padrão [BoundedContext](https://martinfowler.com/bliki/BoundedContext.html) (DDD), separando os modelos dentro dos microservices, com o objetivo de fatiar o Serviço facilmente se caso estiver crescendo muito, evitando-o se tornar um monolito.   
 
 ##### Mappers
 
