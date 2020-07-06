@@ -11,6 +11,14 @@ Parameters:
     Description: Ambiente de desenvolvimento
     Type: String
     Default: develop
+  SubnetGroupIds: 
+    Description: Uma ou mais sub-redes a ser usado para o ec2
+    Type: "List<AWS::EC2::Subnet::Id>"
+    Default: ''    
+  SecurityGroupIds: 
+    Description: Um ou mais grupos de segurança da VPC associados ao ec2.
+    Type: "List<AWS::EC2::SecurityGroup::Id>"
+    Default: ''      
   
 Mappings:
   minhaInstanciaMap:
@@ -45,7 +53,6 @@ Resources:
       UserData: !Base64 |
         #!/bin/bash -ex
         apt update
-        apt install redis-server -y
         apt install docker.io -y
         curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose 
         chmod +x /usr/local/bin/docker-compose

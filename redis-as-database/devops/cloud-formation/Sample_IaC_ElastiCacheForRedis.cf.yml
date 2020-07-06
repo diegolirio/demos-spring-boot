@@ -269,7 +269,7 @@ Resources:
       AtRestEncryptionEnabled: !Ref AtRestEncryptionEnabled
       TransitEncryptionEnabled: !Ref TransitEncryptionEnabled
       #AuthToken: !If [HasAuthToken, !Ref AuthToken, !Ref 'AWS::NoValue']
-      AuthToken: '{{resolve:secretsmanager:demo/redis/auth:SecretString:redis_auth}}'
+      AuthToken: '{{resolve:secretsmanager:dev/redis/auth:SecretString:redis_auth}}'
       AutoMinorVersionUpgrade: true
       CacheNodeType: !Ref CacheNodeType
       CacheParameterGroupName: !If [HasClusterEnabled, !Join ['.', ['default', !FindInMap [EngineVersionMap, !Ref EngineVersion, CacheParameterGroup], 'cluster', 'on']], !Join ['.', ['default', !FindInMap [EngineVersionMap, !Ref EngineVersion, CacheParameterGroup]]]]
@@ -310,7 +310,20 @@ Resources:
       CacheSubnetGroupName: sgredis
       Description: Grupo de Sub Nets para Cluster Redis
       SubnetIds: !Ref SubnetGroupIds 
-     
+
+  # SecretManagerRedis:     
+  #   Type: AWS::SecretsManager::Secret
+  #   Properties: 
+  #     Description: Dev Redis Auth
+  #     GenerateSecretString: 
+  #       GenerateSecretString
+  #     KmsKeyId: String
+  #     Name: String
+  #     SecretString: 
+  #       String
+  #     Tags: 
+  #       - Tag
+
 Outputs:
   TemplateVersion:
     Description: 'Versao do Template.'
