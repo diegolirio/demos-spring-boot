@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "service.av2.url",
+    "type": "java.lang.String",
+    "description": "A description for 'service.av2.url'"
+  },
+  {
+    "name": "service.mainframe.url",
+    "type": "java.lang.String",
+    "description": "A description for 'service.mainframe.url'"
+  },
+  {
+    "name": "service.ak3.url",
+    "type": "java.lang.String",
+    "description": "A description for 'service.ak3.url'"
+  }
+]}
