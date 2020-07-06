@@ -105,7 +105,7 @@ Dificilmente uma aplicação vai rodar totalmente isolada, contendo outras depen
 
 ## Trabalhando com Threads
 
-
+Para trabalhar com [Concorrência e Paralelismo](https://www.treinaweb.com.br/blog/concorrencia-paralelismo-processos-threads-programacao-sincrona-e-assincrona/)  em Java utilizamos o RxJava.    
 
 ## Dicas 
 
