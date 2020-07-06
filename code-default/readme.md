@@ -2,12 +2,11 @@
 
 ## Java
 
-> O padrão de nome de variaveis e objetos deve seguir o 
->  padrão Java feito pela Comunidade hoje.   
+O padrão de nome de variaveis e objetos deve seguir o padrão Java feito pela Comunidade hoje.   
 
 ## API
 
-> APIs expostas no MBI (externas) deve seguir o modelo **snake_case**    
+APIs expostas no MBI (externas) deve seguir o modelo **snake_case**    
 
 ```json
 [
@@ -20,7 +19,7 @@
 ]
 ```
 
-> APIs internas deve seguir o modelo **camelCase**    
+APIs internas deve seguir o modelo **camelCase**    
 
 ```json
 [
