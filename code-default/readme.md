@@ -1,11 +1,11 @@
 # Padrão de código Reneg
 
-### Java
+## Java
 
 > O padrão de nome de variaveis e objetos deve seguir o 
 >  padrão Java feito pela Comunidade hoje.   
 
-### API
+## API
 
 > APIs expostas no MBI (externas) deve seguir o modelo **snake_case**    
 
@@ -33,7 +33,7 @@
 ]
 ```
 
-### Arquitetura de Código
+## Arquitetura de Código
 
     src/
      |------ main/
@@ -42,30 +42,77 @@
      |                                                |------- Application.java
      |                                                |------- config
      |                                                |------- integration
-     |                                                |------- contratos
-     |                                                             |------- controllers
-     |                                                             |------- mappers
-     |                                                             |------- dominios
+     |                                                |------- contrato
+     |                                                             |------- controller
+     |                                                             |------- mapper
+     |                                                             |------- dominio
      |                                                             |------- facade
      |------ test/
 
 ##### Controller
 
+Controller foi surgido inicialmente no Pattern MVC (Model-View-Controller) com a necessidade de organizar e separar o código Frontend (View) do Backend.
+
 ##### Facade
 
-##### Dominios
+Facade está ligada diretamente a arquitetura e significa Fachada. Facade é uma camada utilizada para simplicar vários dependências de objetos centralizando as chamadas no mesmo. Um Motivo muito importante do Facade é desacoplar as `Services` fazendo com que elas mantenham uma única responsabilidade.      
+   
+<<< IMAGEM >>>   
+
+##### Dominios   
+   
+Separamos os modelos chamados de Dominio (Domain). Um ponto muito importante é seguir o padrão [BoundedContext](https://martinfowler.com/bliki/BoundedContext.html) (DDD), separando os modelos dentro dos microservices, com o objetivo de fatiar o Serviço facilmente se caso estiver crescendo muito para evitar se tornar um monolito.   
 
 ##### Mappers
 
+Aplicações de várias camadas geralmente exigem o mapeamento entre diferentes modelos de objetos (por exemplo, entidades e DTOs). Escrever esse código de mapeamento é uma tarefa tediosa e propensa a erros.     
+   
+O [MapStruct](https://mapstruct.org/) visa simplificar esse trabalho, automatizando-o o máximo possível.
+gerando mapeamentos de bean em tempo de compilação (o que o difere do ***Dozer*** que utiliza Refletion e o torna não performático), 
+o que garante um alto desempenho, permite feedback rápido do desenvolvedor e verificação completa de erros.   
+
+```java
+@Mapper
+public interface ContratoSaidaMapper {
+
+    ContratoSaidaMapper MAPPERS = Mappers.getMapper(ContratoSaidaMapper.class);
+
+    ContratoResponse map(BreContratoValidoSaida breContratoValidoSaida);
+	List<ContratoResponse> map(List<BreContratoValidoSaida> listBreContratoValidoSaida);
+
+}
+```
+
+```java
+@Mapper
+public interface BREContratoValidoMapper {
+
+
+    BREContratoValidoMapper MAPPERS = Mappers.getMapper(BREContratoValidoMapper.class);
+
+    List<BreContratoValidoEntrada> map(List<ContratoAk2Saida> contratosAk3, 
+                                       Al0iPDCSaida al0iPDCSaida,
+                                       ClienteAv2 clienteAv2, 
+                                       List<ContratoAv2> contratosAv2);
+
+
+}
+```
+
+
 ##### Integration
 
-### Trabalhando com Threads
+Dificilmente uma aplicação vai rodar totalmente isolada, contendo outras dependências como outros serviços ou alguma camada de dados, a camada integration representa essas dependêcnias de `Infraestutura`.    
 
-### Dicas 
+## Trabalhando com Threads
+
+
+
+## Dicas 
 
 Devemos sempre pensar em um código mais Coeso e menos acoplados seguindos os principios de SOLID e Desing Patterns.
 
-### Microservices
+## Microservices
 
 Existem vários padrões para a construção de Microservices, como Descoberta de Serviço, Centralização de Configuração, API Gateway, Banco de Dados segregados e outros. Os [12 fatores](https://12factor.net/pt_br/) aborta alguns desses padrões.    
 
