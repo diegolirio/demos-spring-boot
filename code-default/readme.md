@@ -107,7 +107,9 @@ Dificilmente uma aplicação vai rodar totalmente isolada, contendo outras depen
 
 Para trabalhar com [Concorrência e Paralelismo](https://www.treinaweb.com.br/blog/concorrencia-paralelismo-processos-threads-programacao-sincrona-e-assincrona/)  em Java utilizamos o RxJava.    
 
-Paralelizando de execuções diferentes:   
+Paralelizando execuções diferentes:   
+
+![](./src/main/resources/static/parallel-1.png)
 
 ```java
 		final Observable<List<ContratoAv2>> contratosAv2Obs = 
