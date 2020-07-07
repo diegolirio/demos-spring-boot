@@ -16,7 +16,6 @@ import com.example.codedefault.contratos.integration.av2.ContratoAv2;
 import com.example.codedefault.contratos.integration.bre.BreContratoValidoEntrada;
 import com.example.codedefault.contratos.integration.bre.BreContratoValidoSaida;
 import com.example.codedefault.contratos.integration.bre.BreService;
-import com.example.codedefault.contratos.integration.bre.ContratoBreSaida;
 import com.example.codedefault.contratos.mapper.Al0iPDCMapper;
 import com.example.codedefault.contratos.mapper.BREContratoValidoMapper;
 

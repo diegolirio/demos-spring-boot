@@ -19,7 +19,8 @@ public interface BREContratoValidoMapper {
 
     List<BreContratoValidoEntrada> map(List<ContratoAk2Saida> contratosAk3, 
                                        Al0iPDCSaida al0iPDCSaida,
-			                           ClienteAv2 clienteAv2, List<ContratoAv2> contratosAv2);
+                                       ClienteAv2 clienteAv2, 
+                                       List<ContratoAv2> contratosAv2);
 
 
 }

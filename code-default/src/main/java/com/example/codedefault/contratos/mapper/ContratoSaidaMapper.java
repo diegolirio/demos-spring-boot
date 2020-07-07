@@ -2,6 +2,7 @@ package com.example.codedefault.contratos.facade;
 
 import java.util.List;
 
+import com.example.codedefault.contratos.facade.ContratoResponse;
 import com.example.codedefault.contratos.integration.bre.BreContratoValidoSaida;
 
 import org.mapstruct.Mapper;
