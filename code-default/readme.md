@@ -134,13 +134,23 @@ Paralelizando a execução (comum) de uma lista item a item:
 		List<BreContratoValidoSaida> listBreContratoValidoSaida = Observable.from(breListObs).flatMap(e -> e).toList().toBlocking().single();
 ```
 
-## Dicas 
-
-Devemos sempre pensar em um código mais Coeso e menos acoplados seguindos os principios de SOLID e Desing Patterns.
-
 ## Microservices
 
 Existem vários padrões para a construção de Microservices, como Descoberta de Serviço, Centralização de Configuração, API Gateway, Banco de Dados segregados e outros. Os [12 fatores](https://12factor.net/pt_br/) aborta alguns desses padrões.    
+
+## Code Review   
+   
+Os padrões determinados acima são pré-requitos nos Code-Review para aprovações de Merge-Requests.
+
+## Boas práticas
+
+Devemos sempre pensar em um código mais Coeso e menos acoplados seguindos os principios de SOLID e Desing Patterns.
+
+- StringUtils :: Verificando String nulas ou vazia   
+- CollectionsUtils :: list == null
+
+![image](https://user-images.githubusercontent.com/3913593/86788623-c2faab80-c03c-11ea-9ebd-de687095d361.png)
+
 
 Código de Exemplo: https://gitlab.com
 
