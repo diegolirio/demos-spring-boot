@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: demo-jeager-customer
+server:
+  port: 8084
+opentracing:
+  jaeger:
+    udp-sender:
+      host: localhost
+      port: 6831
