@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,11 +34,24 @@ public class DemoJeagerCustomerApplication {
         return Arrays.asList(customer);
     }
 
+    @GetMapping("/{firstname}")
+    public Customer get(@PathVariable String firstname) {
+        Customer customer =
+                Customer.builder()
+                        .firstname(firstname)
+                        .lastname("Lirio")
+                        .build();
+        log.info(":: Client com Feign {}", customer);
+        return customer;
+    }
+
+
 }
 
 @Data
 @Builder
 class Customer {
+
     private String firstname;
     private String lastname;
 }
