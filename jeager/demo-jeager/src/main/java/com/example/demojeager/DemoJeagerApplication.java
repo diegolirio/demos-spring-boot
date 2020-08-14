@@ -12,10 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.Duration;
@@ -39,8 +36,8 @@ public class DemoJeagerApplication {
     }
 
     @GetMapping
-    public List<Customer> getCustomer() {
-        List<Customer> list = customerClient.getAll();
+    public List<Customer> getCustomer(String error) {
+        List<Customer> list = customerClient.getAll(error);
         log.info("Get All customers {}", list);
         return list;
     }
@@ -107,7 +104,7 @@ class CustomerClientImpl {
 interface CustomerClient {
 
     @GetMapping
-    List<Customer> getAll();
+    List<Customer> getAll(@RequestParam String error);
 
 
 }
