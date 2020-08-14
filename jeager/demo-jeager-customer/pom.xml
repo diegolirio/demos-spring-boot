@@ -15,8 +15,9 @@
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
-		<java.version>11</java.version>
-		<registry>diegolirio</registry>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<registry>nnmuniz</registry>
 	</properties>
 
 	<dependencies>
@@ -60,7 +61,7 @@
 				<version>1.2.2</version>
 				<configuration>
 					<imageName>${registry}/${project.artifactId}:${project.version}</imageName>
-					<baseImage>fabric8/java-alpine-openjdk11-jre</baseImage>
+					<baseImage>fabric8/java-alpine-openjdk8-jre</baseImage>
 					<entryPoint>["java", "-jar", "-Dspring.profiles.active=aws", "/${project.build.finalName}.jar"]</entryPoint>
 					<resources>
 						<resource>
