@@ -49,7 +49,6 @@ public class DemoJeagerApplication {
         return build;
     }
 
-
 //    @Bean
 //    public static JaegerTracer getTracer() {
 //        io.jaegertracing.Configuration.SamplerConfiguration samplerConfig = io.jaegertracing.Configuration.SamplerConfiguration.fromEnv().withType("const").withParam(1);
