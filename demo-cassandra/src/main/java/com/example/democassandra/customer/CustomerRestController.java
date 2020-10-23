@@ -1,5 +1,6 @@
 package com.example.democassandra.customer;
 
+import com.datastax.driver.core.utils.UUIDs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,6 @@ public class CustomerRestController {
 
     @GetMapping("/save")
     public Customer save() {
-        return this.customerRepository.save(new Customer(null, "Diego", "Lirio"));
+        return this.customerRepository.save(new Customer(UUIDs.timeBased(), "Diego", "Lirio"));
     }
 }
