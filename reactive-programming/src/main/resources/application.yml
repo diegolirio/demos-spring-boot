@@ -1,0 +1,9 @@
+spring:
+  profiles: default
+  application:
+    name: reactive-programming
+  data:
+    mongodb:
+      uri: mongodb://game-app-1:game_on_123@ds143293.mlab.com:43293/game-on?retryWrites=false
+
+origins: http://localhost:3000, http://192.168.0.106:3000
