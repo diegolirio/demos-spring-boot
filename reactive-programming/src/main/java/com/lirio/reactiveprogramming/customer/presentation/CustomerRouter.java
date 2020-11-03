@@ -43,13 +43,26 @@ public class CustomerRouter {
 
         public Mono<ServerResponse> save(ServerRequest serverRequest) {
             Mono<Customer> mono = serverRequest.bodyToMono(Customer.class);
+            return ServerResponse.ok().contentType(APPLICATION_JSON)
+                                      .body(BodyInserters.fromPublisher(
+                                                    mono.map(c -> {
+                                                        Double imc = c.getWeight() / (c.getHeight() * c.getHeight());
+                                                        c.setImc(imc);
+                                                        return c;
+                                                    })
+                                                .flatMap(repository::save),
+                                             Customer.class));
+        }
+
+        public Customer save(String id) {
+            Mono<Customer> mono = repository.findById(id);
             Mono<Customer> map = mono.map(c -> {
                 Double imc = c.getWeight() / (c.getHeight() * c.getHeight());
                 c.setImc(imc);
                 return c;
             });
-            return ServerResponse.ok().contentType(APPLICATION_JSON)
-                    .body(BodyInserters.fromPublisher(map.flatMap(repository::save), Customer.class));
+            Mono<Customer> saved = repository.save(map.block());
+            return saved.block();
         }
 
         public Mono<ServerResponse> delete(ServerRequest serverRequest) {
