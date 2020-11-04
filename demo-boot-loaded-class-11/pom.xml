@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>demo-boot-loaded-class-11</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<name>demo-boot-loaded-class-11</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -22,7 +22,18 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+			<exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>		
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -49,7 +60,25 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-		</plugins>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>1.2.2</version>
+				<configuration>
+					<imageName>diegolirio/${project.artifactId}:${project.version}</imageName>
+					<baseImage>fabric8/java-alpine-openjdk11-jre</baseImage>
+					<entryPoint>["java", "-noverify", "-XX:TieredStopAtLevel=1","-jar", "/${project.build.finalName}.jar"]</entryPoint>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+							<include>*.yml</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>			
+		</plugins>			
 	</build>
 
 </project>
