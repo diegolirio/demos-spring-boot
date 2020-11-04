@@ -1,5 +1,7 @@
 # Read Me First
 
+> Image base >>> `fabric8/java-alpine-openjdk11-jre` => 188MB
+
 Versao 0-0-1-SNAPSHOT:   
    
 Output:
