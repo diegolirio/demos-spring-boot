@@ -52,6 +52,9 @@ Versao 0-0-3-SNAPSHOT: Added Undertow
 
 ![image](https://user-images.githubusercontent.com/3913593/98156304-60180480-1eb6-11eb-90c4-b78c385d0842.png)   
 
+
+https://spring.io/blog/2018/12/12/how-fast-is-spring   
+
 ---
 
 ## Application Class Data Sharing (AppCDS :: Implemented in the open-jdk-10)
