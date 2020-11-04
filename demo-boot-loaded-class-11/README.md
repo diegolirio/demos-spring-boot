@@ -2,14 +2,14 @@
 
 > Image base >>> `fabric8/java-alpine-openjdk11-jre` => 188MB
 
-Versao 0-0-1-SNAPSHOT:   
+##### Versao 0-0-1-SNAPSHOT:   
    
 Output:
 `Started DemoBootLoadedClass11Application in 2.678 seconds (JVM running for 3.428)`
 
 ---
 
-Versao 0-0-2-SNAPSHOT: Added properties and JVMs env
+##### Versao 0-0-2-SNAPSHOT: Added properties and JVMs env
 
 `application.properties`:   
 
@@ -28,7 +28,7 @@ Output:
 
 ---
 
-Versao 0-0-3-SNAPSHOT: Added Undertow
+##### Versao 0-0-3-SNAPSHOT: Added Undertow
 
 ```xml
 <dependency>
