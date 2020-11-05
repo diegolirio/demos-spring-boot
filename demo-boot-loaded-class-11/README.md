@@ -18,7 +18,7 @@ spring.main.lazy-initialization=true
 spring.config.location=file://./src/main/resources/application.properties
 spring.jmx.enabled=false
 ```
-
+ 
 ```sh
 java -noverify -XX:TieredStopAtLevel=1 -jar target/demo.jar
 ```
