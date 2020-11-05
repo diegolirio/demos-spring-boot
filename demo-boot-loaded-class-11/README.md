@@ -1,13 +1,13 @@
 # Read Me First
 
-Versao 0-0-1-SNAPSHOT:   
+##### Versao 0-0-1-SNAPSHOT:   
    
 Output:
 `Started DemoBootLoadedClass11Application in 2.678 seconds (JVM running for 3.428)`
 
 ---
 
-Versao 0-0-2-SNAPSHOT: Added properties and JVMs env
+##### Versao 0-0-2-SNAPSHOT: Added properties and JVMs env
 
 `application.properties`:   
 
@@ -26,7 +26,7 @@ Output:
 
 ---
 
-Versao 0-0-3-SNAPSHOT: Added Undertow
+##### Versao 0-0-3-SNAPSHOT: Added Undertow
 
 ```xml
 <dependency>
@@ -48,3 +48,44 @@ Versao 0-0-3-SNAPSHOT: Added Undertow
 
 `Started DemoBootLoadedClass11Application in 1.003 seconds (JVM running for 1.307)`
 
+![image](https://user-images.githubusercontent.com/3913593/98156304-60180480-1eb6-11eb-90c4-b78c385d0842.png)   
+
+
+https://spring.io/blog/2018/12/12/how-fast-is-spring   
+
+
+> adoptopenjdk/openjdk11-openj9     ===> 447MB 
+> fabric8/java-alpine-openjdk11-jre ===> 188MB
+
+with: adoptopenjdk/openjdk11-openj9 Started in 1.265 seconds
+with: fabric8/java-alpine-openjdk11-jre Started in 1.003 seconds
+
+---
+
+## Application Class Data Sharing (AppCDS :: Implemented in the open-jdk-10)
+
+Geração do arquivo `classes.lst` com a lista dos objetos usados no Load da aplicação
+
+```sh
+java -XX:+UseAppCDS -XX:DumpLoadedClassList=classes.lst -jar target/demo.jar
+```
+   
+```sh
+java -Xshare:dump -XX:+UseAppCDS -XX:SharedClassListFile=classes.lst -XX:SharedArchiveFile=app-cds.jsa --class-path target/demo.jar
+```
+
+Running APP
+
+```sh
+java -Xshare:on -XX:SharedArchiveFile=app-cds.jsa -jar target/demo.jar
+```  
+   
+Ref.: 
+
+https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html      
+
+https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html#app_class_data_sharing   
+
+https://www.linkedin.com/pulse/java-10-application-class-data-sharing-abhi-kerni/   
+
+   

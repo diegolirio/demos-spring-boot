@@ -1,0 +1,8 @@
+version: "3"
+services:
+  webflux:
+    image: diegolirio/demo-boot-webflux-11:0.0.1-SNAPSHOT
+    container_name: webflux
+    #restart: always
+    ports:
+      - 8080:8080

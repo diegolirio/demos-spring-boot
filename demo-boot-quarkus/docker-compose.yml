@@ -1,0 +1,7 @@
+version: '3'
+services: 
+    demobootquarkus:
+        image: diegolirio/demo-boot-quarkus:1.0-SNAPSHOT
+        container_name: demo-boot-quarkus
+        ports: 
+            - 8080:8080
