@@ -1,8 +1,8 @@
 version: "3"
 services:
     app:
-        image: diegolirio/demo-boot-loaded-class-11:0.0.3-SNAPSHOT
-        container_name: produto
+        image: diegolirio/demo-boot-loaded-class-11:0.0.5-SNAPSHOT
+        container_name: app
         #restart: always
         ports:
           - 8080:8080

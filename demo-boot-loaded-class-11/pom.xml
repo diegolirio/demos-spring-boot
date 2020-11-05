@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>demo-boot-loaded-class-11</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.5-SNAPSHOT</version>
 	<name>demo-boot-loaded-class-11</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -34,6 +34,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>		
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-indexer</artifactId>
+			<version>5.3.0</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -67,6 +73,7 @@
 				<configuration>
 					<imageName>diegolirio/${project.artifactId}:${project.version}</imageName>
 					<baseImage>fabric8/java-alpine-openjdk11-jre</baseImage>
+					<!-- <baseImage>adoptopenjdk/openjdk11-openj9</baseImage> -->
 					<entryPoint>["java", "-noverify", "-XX:TieredStopAtLevel=1","-jar", "/${project.build.finalName}.jar"]</entryPoint>
 					<resources>
 						<resource>
