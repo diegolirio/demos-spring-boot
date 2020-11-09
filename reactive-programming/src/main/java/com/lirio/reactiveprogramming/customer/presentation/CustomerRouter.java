@@ -1,5 +1,6 @@
 package com.lirio.reactiveprogramming.customer.presentation;
 
+import com.lirio.reactiveprogramming.customer.application.CustomerService;
 import com.lirio.reactiveprogramming.customer.domain.Customer;
 import com.lirio.reactiveprogramming.customer.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
@@ -34,6 +35,7 @@ public class CustomerRouter {
     public static class SorteioHandler {
 
         private final CustomerRepository repository;
+        private final CustomerService customerService;
 
         public Mono<ServerResponse> getAll(ServerRequest serverRequest) {
             return ServerResponse.ok()
@@ -43,15 +45,10 @@ public class CustomerRouter {
 
         public Mono<ServerResponse> save(ServerRequest serverRequest) {
             Mono<Customer> mono = serverRequest.bodyToMono(Customer.class);
-            return ServerResponse.ok().contentType(APPLICATION_JSON)
-                                      .body(BodyInserters.fromPublisher(
-                                                    mono.map(c -> {
-                                                        Double imc = c.getWeight() / (c.getHeight() * c.getHeight());
-                                                        c.setImc(imc);
-                                                        return c;
-                                                    })
-                                                .flatMap(repository::save),
-                                             Customer.class));
+            return ServerResponse.ok()
+                        .contentType(APPLICATION_JSON)
+                        .body(BodyInserters.fromPublisher(
+                                mono.flatMap(customerService::save), Customer.class));
         }
 
         public Customer save(String id) {
