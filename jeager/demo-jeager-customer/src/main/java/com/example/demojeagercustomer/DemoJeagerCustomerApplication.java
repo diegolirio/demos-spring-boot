@@ -27,12 +27,12 @@ public class DemoJeagerCustomerApplication {
     @GetMapping
     public List<Customer> getAll(Boolean error) {
         if(Boolean.TRUE.equals(error)) {
-            throw new RuntimeException("NãããããÃãããoOOoooooOOOooOOoOooo <<<<<< ");
+            throw new RuntimeException("Erro");
         }
         Customer customer =
                 Customer.builder()
-                        .firstname("Diego")
-                        .lastname("Lirio")
+                        .firstname("Nome")
+                        .lastname("Ultimo nome")
                         .build();
         log.info(":: Client com Feign {}", customer);
         return Arrays.asList(customer);
