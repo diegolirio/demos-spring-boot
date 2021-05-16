@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
+import java.util.UUID;
 
 import com.example.redisasdatabase.product.application.ProductService;
 import com.example.redisasdatabase.product.domain.Product;
@@ -32,8 +33,8 @@ public class ProductController {
     }
 
     @PostMapping
-    public Product save(@RequestBody Product product) {
-        return this.productService.save(product);
+    public Product save() {
+        return this.productService.save(new Product(null, UUID.randomUUID().toString()));
     }    
     
     @DeleteMapping("/{id}")
