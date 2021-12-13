@@ -17,14 +17,6 @@ configurations {
 	}
 }
 
-repositories {
-	mavenCentral()
-	jcenter()
-	maven ( url = "https://nexus.pagseguro.intranet/repository/public" )
-	maven ( url = "https://nexus.pagseguro.intranet/repository/uol.pagseguro/" )
-	maven ( url = "https://nexus.pagseguro.intranet/repository/uol-3rd/" )
-}
-
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
