@@ -16,6 +16,6 @@ Gradle kts
 Or Gralde
 
 ```gradle
-	compile("org.apache.logging.log4j:log4j-api:2.15.0")
-	compile("org.apache.logging.log4j:log4j-to-slf4j:2.15.0")
+    compile(group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.15.0')
+    compile(group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.15.0')
 ```   
