@@ -1,6 +1,5 @@
 package com.example.demorestclient.todo.httpclient;
 
-import com.sun.net.httpserver.spi.HttpServerProvider;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +10,8 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 @Configuration
 public class TodoHttpClientConfig {
 
-    @Value("${todo.url}") String todoUrl;
+    @Value("${external-application.url}")
+    String externalApplicationUrl;
 
     @Bean
     TodoHttpClient todoHttpClient() {
@@ -19,7 +19,7 @@ public class TodoHttpClientConfig {
                 .builder(
                     WebClientAdapter.forClient(WebClient
                         .builder()
-                        .baseUrl(todoUrl)
+                        .baseUrl(externalApplicationUrl)
                         .build()
                     )
                 )
