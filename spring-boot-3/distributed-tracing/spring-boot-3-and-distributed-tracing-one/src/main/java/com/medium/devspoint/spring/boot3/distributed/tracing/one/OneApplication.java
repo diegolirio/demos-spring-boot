@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBoot3AndDistributedTracingOneApplication {
+public class OneApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBoot3AndDistributedTracingOneApplication.class, args);
+		SpringApplication.run(OneApplication.class, args);
 	}
 
 }
