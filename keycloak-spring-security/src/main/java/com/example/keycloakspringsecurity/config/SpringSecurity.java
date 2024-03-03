@@ -18,6 +18,7 @@ public class SpringSecurity {
                 .authorizeHttpRequests((authz) -> authz
                         .requestMatchers("/products/no-security").permitAll()
                         .requestMatchers("/products-items").permitAll()
+                        .requestMatchers("/keycloak").permitAll()
                         .requestMatchers("/products/items/**").hasRole("CUSTODY_CREATE")
                         .anyRequest().authenticated()
                 )

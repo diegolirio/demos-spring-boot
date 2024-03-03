@@ -1,4 +1,4 @@
-package com.example.keycloakspringsecurity;
+package com.example.keycloakspringsecurity.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import static com.example.keycloakspringsecurity.ProductItemController.ROOT_PATH;
+import static com.example.keycloakspringsecurity.controller.ProductItemController.ROOT_PATH;
 
 @RestController
 @RequestMapping(ROOT_PATH)

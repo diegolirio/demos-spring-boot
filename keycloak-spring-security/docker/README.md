@@ -1,28 +1,32 @@
 # Kong + Keycloak UP and Running
 
-1. Subir Keycloak e configurar Realm, Client-IDs, Users, Realm Roles
-2. Testar Spring Security + Keycloak
-3. Configurar Konga com o Kong
-4. Mapear rotas do Kong para o Spring-Security-Keycloak
-5. Mapear rotas do Kong para o Spring-GraphQL
-6. Connectar Kong com o Keycloak (OpenID Connect)
+1. Subir Keycloak e configurar Realm, Client-IDs, Users, Realm Roles `OK`
+2. Testar Spring Security + Keycloak `OK`
+3. Configurar Konga com o Kong `OK`
+4. Mapear rotas do Kong para o Spring-Security-Keycloak `OK`
+5. Mapear rotas do Kong para o Spring-GraphQL `OK`
+6. Connectar Kong com o Keycloak (OpenID Connect) `in_progress`
 
 ---
 
-## Keycloak - OK
+## Keycloak - `OK`
 
 ```shell
-docker-compose -f docker-compose-keycloack.yml
+docker-compose -f docker-compose-keycloack-security.yml
 ```
 
-1. Create Realm (corf)
-2. Create Client (corf_front)
-3. Create Realm Roles (CUSTODY_GET)
-4. Create User (ddamacena)
+1. Access [Keycloak](http://localhost:8080)
+2. Create Realm (corf)
+3. Create Client (corf_front)
+4. Create Realm Roles (CUSTODY_GET)
+5. Create User (ddamacena)
+6. Perform Login on test-keycloak.http
+7. Catching and putting token in Authorization-Header in the request the second example in test-keycloak.http.    
+8. A error should be presented, you need to add role in the ddamacena's Role Mapping (CUSTODY_GET) and Request again.
 
 ---
 
-## Kong -OK
+## Kong - `OK`
 ```shell
 docker-compose -f docker-compose-kong.yml
 ```
@@ -31,7 +35,7 @@ docker-compose -f docker-compose-kong.yml
 2. Request GET http://localhost:8001 to see kong running
 3. On Konga map kong-gateway to manager it, name is kong and url is http://kong:8001
 
-## Kong + Spring Boot App - OK
+## Kong + Spring Boot App - `OK`
 
 ```shell
 cd ..
@@ -49,11 +53,11 @@ docker-compose -f docker-compose-kong-spring-boot.yml
 > Aplicacao CDB --> http://cdb-position.intranet.pags/positions/{code}
 > Kong --> https://investments.api-gateway.intranet.pags/cdb-position/positions/{code}
 
-## Kong + GraphQL - HERE
+## Kong + GraphQL - `OK`
 
 1. Configurar kong + GraphQL no Konga
 
-## Kong + OIDC
+## Kong + OIDC - `HERE`  
 
 ```shell
 docker-compose -f docker-compose-kong-oicd.yml
@@ -71,7 +75,13 @@ docker-compose -f docker-compose-kong-oicd.yml
 docker-compose -f docker-compose-keycloak-oracle.yml
 ```
 
-## Keycloak Building my Docker Image for Production
+## Keycloak Building my Docker Image for Production (Kubernetes)
+
+```shell
+docker build -t diegolirio/keycloak:1.0.0 .
+```
+
+## Kong for Production (Kubernetes)
 
 ```shell
 docker build -t diegolirio/keycloak:1.0.0 .
