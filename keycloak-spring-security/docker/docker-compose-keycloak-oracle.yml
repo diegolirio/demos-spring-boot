@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:23.0.7
+    container_name: keycloak
+    ports:
+      - "8080:8080"
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    command: start-dev
+
+  oracle:
+    image: gvenzl/oracle-free
+    container_name: oracledatabase
+    ports:
+      - 1521:1521
+    environment:
+      ORACLE_RANDOM_PASSWORD: root
+      APP_USER: dbuser
+      APP_USER_PASSWORD: dbuser

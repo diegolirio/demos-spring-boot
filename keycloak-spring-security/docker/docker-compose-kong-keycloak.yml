@@ -1,0 +1,45 @@
+version: '3.1'
+
+services:
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:23.0.7
+    container_name: keycloak
+    ports:
+      - "8080:8080"
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    command: start-dev
+    volumes:
+      - ./keycloak/conf:/opt/keycloak/conf
+      - ./keycloak/realms:/opt/keycloak/data/import
+      - ./keycloak/themes:/opt/keycloak/themes
+
+#  kong:
+#    #image: kong:latest
+#    container_name: kong
+#    build: .
+##    environment:
+##      KONG_DATABASE: "off" # Use 'off' to disable built-in database
+##      KONG_PLUGINS: "bundled,oidc" # Enable bundled and OIDC plugin
+##      KONG_DECLARATIVE_CONFIG: /etc/kong/kong.yml # Location of Kong configuration file
+##      KONG_PROXY_LISTEN: "0.0.0.0:8000, 0.0.0.0:8443 ssl" # Listen addresses
+#    volumes:
+#      - ./kong.yml:/etc/kong/kong.yml # Mount Kong configuration file
+#    ports:
+#      - "8000:8000" # HTTP Proxy port
+#      - "8443:8443" # HTTPS Proxy port
+
+#  kong-database:
+#    image: postgres:9.6
+#    container_name: kong-database
+#    environment:
+#      POSTGRES_USER: kong
+#      POSTGRES_DB: kong
+#      POSTGRES_PASSWORD: kong
+#    volumes:
+#      - kong-database:/var/lib/postgresql/data
+#
+#volumes:
+#  kong-database:

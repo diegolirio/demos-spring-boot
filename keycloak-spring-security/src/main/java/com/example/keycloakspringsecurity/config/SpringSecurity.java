@@ -13,11 +13,15 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SpringSecurity {
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity
-                .csrf(c -> c.disable())
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http.csrf(c -> c.disable())
+                .authorizeHttpRequests((authz) -> authz
+                        .requestMatchers("/products/no-security").permitAll()
+                        .requestMatchers("/products/items/**").hasRole("CUSTODY_CREATE")
+                        .anyRequest().authenticated()
+                )
                 .oauth2ResourceServer(o -> o.jwt(jwt -> jwt.jwtAuthenticationConverter(new JWTConverter())));
-        return  httpSecurity.build();
+        return http.build();
     }
 
 }
