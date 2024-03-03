@@ -17,6 +17,7 @@ public class SpringSecurity {
         http.csrf(c -> c.disable())
                 .authorizeHttpRequests((authz) -> authz
                         .requestMatchers("/products/no-security").permitAll()
+                        .requestMatchers("/products-items").permitAll()
                         .requestMatchers("/products/items/**").hasRole("CUSTODY_CREATE")
                         .anyRequest().authenticated()
                 )

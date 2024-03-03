@@ -1,4 +1,7 @@
 # Set environment variable for access token
+
+### Keycloak
+
 @token = ""
 
 # Login
@@ -13,10 +16,12 @@ Content-Type: application/json
 {
   "access_token": "<YOUR_TOKEN>"
 }
-###
 
+###
 # Set access token in environment variable
 @token = {{access_token}}
+
+### Spring-Boot-App
 
 # GET Products
 GET http://localhost:8081/products
@@ -26,7 +31,22 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJPYmtyajk5VnBRYmpLWUlQMHc0R0N6YWQ2Rm9vakF0clhSaGFibHlMXzFVIn0.eyJleHAiOjE3MDk0MjA2ODEsImlhdCI6MTcwOTQyMDM4MSwianRpIjoiZDA1M2E0MmUtNDYwZC00YjRmLWE1YzYtNDA3NDgzZGZlN2M0IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9jb3JmIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImIyODQyMTc0LWFlMTktNDlkNi05NTNjLTdiOWYzZmNiZDljZSIsInR5cCI6IkJlYXJlciIsImF6cCI6ImNvcmZfZnJvbnQiLCJzZXNzaW9uX3N0YXRlIjoiYTYyODNhMzQtMzJmZS00OGIxLWE4MWMtMWNlZDY4NDg3NjMzIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiQ1VTVE9EWV9HRVQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1jb3JmIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwic2lkIjoiYTYyODNhMzQtMzJmZS00OGIxLWE4MWMtMWNlZDY4NDg3NjMzIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJEaWVnbyBMaXJpbyIsInByZWZlcnJlZF91c2VybmFtZSI6ImRkYW1hY2VuYSIsImdpdmVuX25hbWUiOiJEaWVnbyIsImZhbWlseV9uYW1lIjoiTGlyaW8iLCJlbWFpbCI6ImRkYW1hY2VuYUB1b2xpbmMuY29tIn0.R69xdgNyBeQC9rD1pGvVmzkJX-LAoKME7_UqNpW5oPjuVwOPMLL0tCIsjkar3s_-CtxNquI_kUkBmzcb8xnWgq6zy6RvwZwcHK_ERXFJM9SgbwYmMFC2VbKJu9Nps_6MSo_d_-2lYA7CQcP-EZs036WMN4dPMXadzpVJ-X5ToedTeQJHEGIH89RGQUse-AEgZ66JZCdvFmzNynmD_Q3Y37jkDgFZoP9NUO0x6tlut53lnDpZ7E2sIf2sAmE1ICBlATqrzXL6N6RinBniQ7PqjILY0bKMynF16abLFxPvbAZmWXzPCLNoHUEYg4teq3lRyf6R6oS8LBAc9XXG8bcn7w
 
 ###
-
-# GET Products
+# GET Products public access
 GET http://localhost:8081/products/no-security
+Content-Type: application/json
+
+### Kong
+
+# GET Kong default API
+GET http://localhost:8001
+Content-Type: application/json
+
+###
+# GET Kong default API
+GET http://localhost:8000/products-items
+Content-Type: application/json
+
+###
+# GET Kong default API
+GET http://localhost:8000/products/no-security
 Content-Type: application/json

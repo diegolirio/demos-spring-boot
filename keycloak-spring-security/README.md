@@ -1,12 +1,5 @@
 # Read Me First
 
-## Keycloak
-
-1. Create Realm (corf)
-2. Create Client (corf_front)
-3. Create Realm Roles (CUSTODY_GET)
-4. Create User (ddamacena)
-
 Ref.:
 
 https://www.jerney.io/secure-apis-kong-keycloak-1/   
