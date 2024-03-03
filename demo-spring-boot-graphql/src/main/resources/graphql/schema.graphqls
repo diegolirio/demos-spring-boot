@@ -1,0 +1,25 @@
+type ProductResponse {
+    id: ID!
+    name: String
+    type: String
+}
+
+type CustodyResponse {
+    id: ID!
+    customerId: String
+    purchaseValue: Float
+    product: ProductResponse
+    createdAt: String
+}
+
+type CustodyRequest {
+    customerId: String
+}
+
+type Query {
+    customdyById(id: ID!) : CustodyResponse
+}
+
+type Mutation {
+    createCustody(customerId: String): CustodyResponse
+}

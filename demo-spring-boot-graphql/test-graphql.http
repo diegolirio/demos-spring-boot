@@ -1,0 +1,9 @@
+
+###
+# Mutation
+POST http://localhost:8081/graphql
+content-type: application/json
+
+{
+  "query": "query { customdyById(id: \"f2dc73b8-3d1d-4c26-b894-13919b4414c6\") { customerId product { type name } createdAt }}"
+}
