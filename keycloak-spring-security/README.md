@@ -2,7 +2,6 @@
 
 ![image](https://github.com/diegolirio/demos-spring-boot/assets/3913593/4ea4e4f4-f324-4a5b-aaa8-f2b578519322)
 
-
 Ref.:
 
 https://www.jerney.io/secure-apis-kong-keycloak-1/   

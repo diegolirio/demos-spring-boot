@@ -1,5 +1,14 @@
 # Kong + Keycloak UP and Running
 
+1. Subir Keycloak e configurar Realm, Client-IDs, Users, Realm Roles
+2. Testar Spring Security + Keycloak
+3. Configurar Konga com o Kong
+4. Mapear rotas do Kong para o Spring-Security-Keycloak
+5. Mapear rotas do Kong para o Spring-GraphQL
+6. Connectar Kong com o Keycloak (OpenID Connect)
+
+---
+
 ## Keycloak - OK
 
 ```shell
@@ -40,11 +49,9 @@ docker-compose -f docker-compose-kong-spring-boot.yml
 > Aplicacao CDB --> http://cdb-position.intranet.pags/positions/{code}
 > Kong --> https://investments.api-gateway.intranet.pags/cdb-position/positions/{code}
 
-## Keycloak + Oracle - HERE
+## Kong + GraphQL - HERE
 
-```shell
-docker-compose -f docker-compose-keycloak-oracle.yml
-```
+1. Configurar kong + GraphQL no Konga
 
 ## Kong + OIDC
 
@@ -56,6 +63,12 @@ docker-compose -f docker-compose-kong-oicd.yml
 
 ```shell
 docker-compose -f docker-compose-kong-oicd.yml
+```
+
+## Keycloak + Oracle
+
+```shell
+docker-compose -f docker-compose-keycloak-oracle.yml
 ```
 
 ## Keycloak Building my Docker Image for Production

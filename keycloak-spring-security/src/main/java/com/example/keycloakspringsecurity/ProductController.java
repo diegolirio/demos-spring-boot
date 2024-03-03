@@ -1,9 +1,7 @@
 package com.example.keycloakspringsecurity;
 
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +24,9 @@ public class ProductController {
         return List.of("CDB", "LCI", "LCA");
     }
 
+    @PostMapping("/no-security")
+    public List<String> getProducts2(@RequestParam("type") String type) {
+        return List.of(type);
+    }
 
 }

@@ -35,7 +35,12 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJPYmtyaj
 GET http://localhost:8081/products/no-security
 Content-Type: application/json
 
-### Kong
+###
+# POST Product public access
+POST http://localhost:8081/products/no-security?type=CRYPTO
+Content-Type: application/json
+
+### Kong + Spring Boot
 
 # GET Kong default API
 GET http://localhost:8001
@@ -50,3 +55,28 @@ Content-Type: application/json
 # GET Kong default API
 GET http://localhost:8000/products/no-security
 Content-Type: application/json
+
+###
+# POST Product public access
+POST http://localhost:8000/products/no-security?type=LCA
+Content-Type: application/json
+
+### Kong + GraphQL
+
+###
+# Mutation Custody
+POST http://localhost:8000/graphql
+Content-Type: application/json
+
+{
+  "query": "mutation {createCustody(customerId: \"CUSTOMER:516DBV56DF65BV1DFB\") { id customerId purchaseValue product { id name } createdAt }}"
+}
+
+### Query Custody
+# Query Custody
+POST http://localhost:8000/graphql
+content-type: application/json
+
+{
+  "query": "query { customdyById(id: \"5cda7cf3-e9a3-4eff-8781-3f7bc8549857\") { customerId product { type name } createdAt }}"
+}
